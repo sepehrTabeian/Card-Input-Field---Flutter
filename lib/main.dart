@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: CardInputScreen(
-            separatorLength: 4,
-            valueLength: 16,
+            numberSeparatorLength: 4,
+            numberValueLength: 16,
             boxCount: 4,
             widthBox: 60,
             heightBox: 60,
@@ -28,16 +28,16 @@ class MyApp extends StatelessWidget {
 }
 
 class CardInputScreen extends StatefulWidget {
-  final int separatorLength;
-  final int valueLength;
+  final int numberSeparatorLength;
+  final int numberValueLength;
   final int boxCount;
   final double widthBox;
   final double heightBox;
 
   const CardInputScreen({
     super.key,
-    required this.separatorLength,
-    required this.valueLength,
+    required this.numberSeparatorLength,
+    required this.numberValueLength,
     required this.boxCount,
     required this.widthBox,
     required this.heightBox,
@@ -54,13 +54,13 @@ class _CardInputScreenState extends State<CardInputScreen> {
   @override
   void initState() {
     super.initState();
-    _controllers =
-        List.generate(widget.boxCount, (index) => TextEditingController());
+    _controllers = List.generate(widget.boxCount, (index) => TextEditingController());
     _focusNodes = List.generate(widget.boxCount, (index) => FocusNode());
+
     for (var controller in _controllers) {
       controller.addListener(() {
         final text = controller.text;
-        if (text.length > widget.separatorLength) {
+        if (text.length > widget.numberSeparatorLength) {
           _handlePaste(text);
         }
       });
@@ -69,12 +69,12 @@ class _CardInputScreenState extends State<CardInputScreen> {
 
   void _handlePaste(String text) {
     String cardNumber = text.replaceAll(RegExp(r'\D'), '');
-    if (cardNumber.length != widget.valueLength) return;
+    if (cardNumber.length != widget.numberValueLength) return;
 
     setState(() {
       for (int i = 0; i < widget.boxCount; i++) {
         _controllers[i].text = cardNumber.substring(
-            i * widget.separatorLength, (i + 1) * widget.separatorLength);
+            i * widget.numberSeparatorLength, (i + 1) * widget.numberSeparatorLength);
       }
     });
   }
@@ -91,16 +91,16 @@ class _CardInputScreenState extends State<CardInputScreen> {
             controller: _controllers[index],
             focusNode: _focusNodes[index],
             keyboardType: TextInputType.number,
-            maxLength: widget.separatorLength,
+            maxLength: widget.numberSeparatorLength,
             textAlign: TextAlign.center,
             decoration: const InputDecoration(
               counterText: "",
               border: OutlineInputBorder(),
             ),
             onChanged: (value) {
-              if (value.length == widget.separatorLength ) {
+              if (value.length == widget.numberSeparatorLength ) {
 
-                if(_controllers[index].text.length == widget.valueLength){
+                if(_controllers[index].text.length == widget.numberValueLength){
                   _focusNodes.last.requestFocus();
                 }else{
                   _focusNodes[index + 1].requestFocus();
@@ -115,8 +115,8 @@ class _CardInputScreenState extends State<CardInputScreen> {
                 index: index,
                 controllers: _controllers,
                 focusNodes: _focusNodes,
-                separatorLength: widget.separatorLength,
-                valueLength: widget.valueLength,
+                separatorLength: widget.numberSeparatorLength,
+                valueLength: widget.numberValueLength,
                 boxCount: widget.boxCount,
               ),
             ],
