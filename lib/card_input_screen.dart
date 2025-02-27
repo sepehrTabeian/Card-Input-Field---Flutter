@@ -1,4 +1,4 @@
-import 'package:code_challange/card_input_component.dart' show CardInputComponent;
+import 'package:card_input_field/card_input_component.dart';
 import 'package:flutter/material.dart';
 import 'card_input_controller.dart';
 

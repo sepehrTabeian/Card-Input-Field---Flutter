@@ -1,4 +1,4 @@
-import 'package:code_challange/card_input_screen.dart';
+import 'package:card_input_field/card_input_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
