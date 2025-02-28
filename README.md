@@ -3,6 +3,14 @@
 A modular, reusable, and SOLID-principled **Card Number Input Field** built using Flutter.  
 This project demonstrates **best practices** in state management, clean architecture, and design patterns.
 
+## 🎥 Demo Preview
+
+### 📌 SMS Input Field in Action
+![SMS Input Demo](images/sms_input_field.gif)
+
+### 📌 Credit Card 
+![Credit Card Demo ](images/credit_card.gif)
+
 ## 📌 Features
 ✅ **Custom card number input field** with automatic focus shifting.  
 ✅ **Supports configurable separator lengths** for different card formats.  
