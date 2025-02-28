@@ -6,10 +6,10 @@ This project demonstrates **best practices** in state management, clean architec
 ## 🎥 Demo Preview
 
 ### 📌 SMS Input Field in Action
-![SMS Input Demo](asset/sms_input_field.gif)
+<img src="asset/sms_input_field.gif" width="300" height="auto">
 
 ### 📌 Credit Card 
-![Credit Card Demo ](asset/credit_card.gif)
+<img src="asset/credit_card.gif" width="300" height="auto">
 
 ## 📌 Features
 ✅ **Custom card number input field** with automatic focus shifting.  
