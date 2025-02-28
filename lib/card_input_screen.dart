@@ -10,13 +10,13 @@ class CardInputScreen extends StatefulWidget {
   final double heightBox;
 
   const CardInputScreen({
-    Key? key,
+    super.key,
     required this.numberSeparatorLength,
     required this.numberValueLength,
     required this.boxCount,
     required this.widthBox,
     required this.heightBox,
-  }) : super(key: key);
+  });
 
   @override
   _CardInputScreenState createState() => _CardInputScreenState();
@@ -45,12 +45,15 @@ class _CardInputScreenState extends State<CardInputScreen> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: List.generate(
         widget.boxCount,
             (index) => CardInputComponent(
           index: index,
           controller: _cardInputController,
-          onUpdate: () => setState(() {}), // Update UI without Provider
+          onUpdate: () => setState(() {}),
+              widthBox: widget.widthBox,
+              heightBox: widget.heightBox, // Update UI
         ),
       ),
     );

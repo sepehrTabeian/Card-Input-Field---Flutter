@@ -14,7 +14,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: CardInputScreen(numberSeparatorLength: 1, numberValueLength: 4, boxCount: 4, widthBox: 60, heightBox: 60),
+          child: CardInputScreen(
+            numberSeparatorLength: 1,
+            numberValueLength: 4,
+            boxCount: 4,
+            widthBox: 40,
+            heightBox: 40,
+          ),
         ),
       ),
     );
